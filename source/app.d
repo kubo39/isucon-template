@@ -27,6 +27,7 @@ void main()
     auto settings = new HTTPServerSettings;
     settings.port = environment.get("SERVER_PORT", "8080").to!ushort;
     settings.bindAddresses = ["127.0.0.1"];
+    settings.sessionStore = new MemorySessionStore;
 
     auto router = new URLRouter;
     auto fileServerSettings = new HTTPFileServerSettings;
